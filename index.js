@@ -42,6 +42,8 @@ mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGO_URI);
 const User = mongoose.model("User", { email: { type: String, unique: true }, password: String, categories: Array, history: Array, public: { name: String, avatar: String, social: { ig: String, tw: String, em: String, sc: String }, visibility: Boolean, following: Array } });
 
+app.use(express.static("public"));
+
 app.post("/api/auth", jsonParser, async (req, res) => {
 	if (!req.body.email || !req.body.password) return res.status(422).json({ error: "Please enter your email and password" });
 	const foundboi = await User.find({ email: req.body.email });
@@ -120,6 +122,10 @@ app.post("/api/upload", upload.single("image"), function (req, res) {
 	}
 	res.json({ filename: req.file.filename });
 	// res.redirect("back");
+});
+
+app.get("*", function (request, response) {
+	response.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
 app.listen(port, () => {
