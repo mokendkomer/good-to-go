@@ -1,0 +1,22 @@
+{
+	"name": "good-to-go",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"vue": "^3.2.45",
+		"vue-router": "^4.1.6",
+		"vue-simple-context-menu": "^4.0.4",
+		"vuex": "^4.1.0",
+		"vuex-persistedstate": "^4.1.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^4.0.0",
+		"vite": "^4.0.0"
+	},
+	"proxy": "http://localhost:3000"
+}
