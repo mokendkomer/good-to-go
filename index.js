@@ -33,8 +33,8 @@ const upload = multer({
 
 const app = express();
 const jsonParser = bodyParser.json();
-const cors = require("cors");
-app.use(cors());
+// const cors = require("cors");
+// app.use(cors());
 app.use("/api/images", express.static("uploads"));
 
 const port = 3000;
